@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/bookListFragment">
+
+    <fragment
+        android:id="@+id/bookListFragment"
+        android:name="com.example.bookapp.ui.BookListFragment"
+        android:label="رفوفي"
+        tools:layout="@layout/fragment_book_list" >
+        <action
+            android:id="@+id/action_bookListFragment_to_bookDetailsFragment"
+            app:destination="@id/bookDetailsFragment" >
+            <argument
+                android:name="imageId"
+                app:argType="string" />
+        </action>
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/bookDetailsFragment"
+        android:name="com.example.bookapp.ui.BookDetailsFragment"
+        android:label="رفوفي"
+        tools:layout="@layout/fragment_book_details" >
+        <action
+            android:id="@+id/action_bookDetailsFragment_to_bookBillFragment"
+            app:destination="@id/bookBillFragment" />
+        <action
+            android:id="@+id/action_bookDetailsFragment_to_pdfBookFragment"
+            app:destination="@id/pdfBookFragment" >
+            <argument
+                android:name="BookName"
+                android:defaultValue="string" />
+        </action>
+
+    </fragment>
+    <fragment
+        android:id="@+id/pdfBookFragment"
+        android:name="com.example.bookapp.ui.PdfBookFragment"
+        android:label="رفوفي"
+        tools:layout="@layout/fragment_pdf_book" />
+    <fragment
+        android:id="@+id/bookBillFragment"
+        android:name="com.example.bookapp.ui.BookBillFragment"
+        android:label="رفوفي" >
+        <action
+            android:id="@+id/action_bookBillFragment_to_bookListFragment"
+            app:destination="@id/bookListFragment" />
+    </fragment>
+</navigation>
